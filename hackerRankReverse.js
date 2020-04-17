@@ -14,25 +14,25 @@
 // TEST CASES ARE (TEST) LIKE EXAMPLES AND (((((((TEST)))))))
 // 2 (()) CANCELS OUT
 
-function reverseInParentheses(s) {
-  // FIND () IN STRING WITH REG EXP
-  var regExp = /\(([^)]+)\)/
-  var matches = regExp.exec(s)
+// function reverseInParentheses(s) {
+//   // FIND () IN STRING WITH REG EXP
+//   var regExp = /\(([^)]+)\)/
+//   var matches = regExp.exec(s)
 
-  // FIND INNERMOST ()
-  // REVERSE CHARS
-  // NEXT OUTERMOST ()
-  // REVERSE CHARS
-  //
-  console.log(matches)
-  const answer = matches[1]
-  console.log(answer)
-  const reverseString = answer.split('').reverse().join('')
-  console.log(reverseString)
-  return reverseString
-}
+//   // FIND INNERMOST ()
+//   // REVERSE CHARS
+//   // NEXT OUTERMOST ()
+//   // REVERSE CHARS
+//   //
+//   console.log(matches)
+//   const answer = matches[1]
+//   console.log(answer)
+//   const reverseString = answer.split('').reverse().join('')
+//   console.log(reverseString)
+//   return reverseString
+// }
 
-reverseInParentheses('(bar)') // OUTPUT rab
+// reverseInParentheses('(bar)') // OUTPUT rab
 
 // reverseInParentheses(foo(bar(baz))blim) // OUTPUT: foobazrabblim
 
@@ -59,3 +59,47 @@ var matches = regExp.exec('I expect five hundred dollars (500).')
 // var str = 'Visit (W3S)chools!'
 // var n2 = str.search('()')
 // console.log(n2)
+
+function reverseInParentheses(s) {
+  // FIND () IN STRING WITH REG EXP
+  var firstExp = /^[^()]+/
+  var regExp = /\(([^)]+)\)/
+  var innerExp = /\(([^\(\)]+)\)/
+  var firstPart = firstExp.exec(s)
+  console.log('firstExp', firstPart)
+  var matches = regExp.exec(s)
+  console.log('matches', matches)
+  var matchesInner = innerExp.exec(s)
+  console.log('matchesInner', matchesInner)
+
+  // FIND INNERMOST ()
+  console.log('matchesInner', matchesInner)
+  const answerInner = matches[1]
+  console.log('answerInner', answerInner)
+  const firstWord = firstPart
+  const lastWord = matches[1]
+  console.log('firstWord', firstWord)
+  console.log('lastWord', lastWord)
+  const reverseInnerString = answerInner.split('').reverse().join('')
+  console.log('reverseInnerString', reverseInnerString)
+  // REVERSE CHARS
+  // NEXT OUTERMOST ()
+  // REVERSE CHARS
+  //
+  console.log(matches)
+  const answer = matches[1]
+  console.log('answer', answer)
+  const reverseString = answer.split('').reverse().join('')
+  console.log('reverseString', reverseString)
+
+  // string.concat(value1, value2, ... value_n);
+  const z = firstWord.concat(firstWord, reverseString)
+  const r = reverseString.concat(firstWord)
+  console.log('reverseStringLast', r)
+  return reverseString
+}
+
+// reverseInParentheses('(bar)') // OUTPUT rab
+reverseInParentheses('foo(bar)baz') // foorabbaz
+
+// reg exp for inntemost () = /\(([^\(\)]+)\)/

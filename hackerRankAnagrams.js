@@ -83,6 +83,7 @@ function makeAnagrams(a, b) {
   const aArr = []
   const bArr = []
   const outCount = 0
+  var masterCount = 0
   while (i--) {
     const aV = a.charAt(i)
     console.log(aV)
@@ -98,7 +99,7 @@ function makeAnagrams(a, b) {
   }
   console.log(aArr)
 
-  var uniq = aArr
+  const uniq = aArr
     .map((name) => {
       return {
         count: 1,
@@ -107,18 +108,24 @@ function makeAnagrams(a, b) {
     })
     .reduce((a, b) => {
       a[b.name] = (a[b.name] || 0) + b.count
+      console.log('b.count', b.count)
+      masterCount += 1
+      console.log('a', a)
       return a
     }, {})
+  console.log('masterCount', masterCount)
+  const duplicates = Object.keys(uniq).filter((a) => uniq[a] > 1)
 
-  var duplicates = Object.keys(uniq).filter((a) => uniq[a] > 1)
-
-  console.log(duplicates)
+  console.log('duplicates', duplicates)
 
   // IF SO COUNT + 2
   const dups = duplicates.length * 2
   console.log('dups', dups)
   const finalAnswer = totalChars - dups
   console.log('finalAnswer', finalAnswer)
+  return finalAnswer
 }
 
-makeAnagrams('cde', 'abc')
+// makeAnagrams('cde', 'abc') -- passes
+
+makeAnagrams('fcrxzwscanmligyxyvym', 'jxwtrhvujlmrpdoqbisbwhmgpmeoke') // expected 30
