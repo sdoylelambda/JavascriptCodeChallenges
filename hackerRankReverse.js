@@ -12,6 +12,7 @@
 
 // NOTES
 // TEST CASES ARE (TEST) LIKE EXAMPLES AND (((((((TEST)))))))
+// 2 (()) CANCELS OUT
 
 function reverseInParentheses(s) {
   // FIND () IN STRING WITH REG EXP
@@ -28,7 +29,7 @@ function reverseInParentheses(s) {
   console.log(answer)
   const reverseString = answer.split('').reverse().join('')
   console.log(reverseString)
-  return answer
+  return reverseString
 }
 
 reverseInParentheses('(bar)') // OUTPUT rab
