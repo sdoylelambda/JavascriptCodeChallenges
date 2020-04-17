@@ -1,4 +1,5 @@
 const arr = [1, 2, 3]
+//const str = 'hmmm' // nope
 
 function forEach(arr) {
   arr.forEach((a) => {
@@ -7,3 +8,4 @@ function forEach(arr) {
 }
 
 forEach(arr)
+//forEach(str)
