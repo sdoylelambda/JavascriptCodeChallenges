@@ -24,8 +24,101 @@
 // SEE IF CHAR IS IN B
 // IF SO COUNT + 2
 // SUBTRACT COUNT FROM TOTAL CHARS OF A+B
-// RETURN RESULT
+// RETURN RESULT EX: 4
+
+// function makeAnagrams(a, b) {
+//   // TAKE COUNT OF a + b  EX: 6
+//   const totalChars = a.length + b.length
+//   console.log(totalChars)
+//   // FOR EACH CHAR IN a
+//   var i = a.length
+//   const aArr = []
+//   const bArr = []
+//   while (i--) {
+//     const aV = a.charAt(i)
+//     console.log(aV)
+//     aArr.push(aV)
+//   }
+//   console.log(aArr)
+//   // SEE IF CHAR IS IN B
+//   var z = b.length
+//   while (z--) {
+//     const bV = b.charAt(z)
+//     console.log(bV)
+//     aArr.push(bV)
+//   }
+//   console.log(aArr)
+//   // IF SO COUNT + 2
+//   let sorted_arr = aArr.slice().sort() // You can define the comparing function here.
+//   // JS by default uses a crappy string compare.
+//   // (we use slice to clone the array so the
+//   // original array won't be modified)
+
+//   console.log('sorted_arr', sorted_arr)
+//   let results = []
+//   for (let i = 0; i < sorted_arr.length - 1; i++) {
+//     console.log('sortPre', sorted_arr[i + 1])
+//     if (sorted_arr[i + 1] === sorted_arr[i]) {
+//       console.log('sortI', sorted_arr[0])
+//       results.push(sorted_arr[i])
+//     }
+
+//     console.log('results', results)
+//     return results
+//   }
+//   // SUBTRACT COUNT FROM TOTAL CHARS OF A+B
+//   // RETURN RESULT EX: 4
+//   console.log(results.length())
+//   return results.length()
+// }
+
+// makeAnagrams('cde', 'abc')
 
 function makeAnagrams(a, b) {
-  // Write your code here
+  // TAKE COUNT OF a + b  EX: 6
+  const totalChars = a.length + b.length
+  console.log(totalChars)
+  // FOR EACH CHAR IN a
+  var i = a.length
+  const aArr = []
+  const bArr = []
+  const outCount = 0
+  while (i--) {
+    const aV = a.charAt(i)
+    console.log(aV)
+    aArr.push(aV)
+  }
+  console.log(aArr)
+  // GET CHAR FROM B
+  var z = b.length
+  while (z--) {
+    const bV = b.charAt(z)
+    console.log(bV)
+    aArr.push(bV)
+  }
+  console.log(aArr)
+
+  var uniq = aArr
+    .map((name) => {
+      return {
+        count: 1,
+        name: name,
+      }
+    })
+    .reduce((a, b) => {
+      a[b.name] = (a[b.name] || 0) + b.count
+      return a
+    }, {})
+
+  var duplicates = Object.keys(uniq).filter((a) => uniq[a] > 1)
+
+  console.log(duplicates)
+
+  // IF SO COUNT + 2
+  const dups = duplicates.length * 2
+  console.log('dups', dups)
+  const finalAnswer = totalChars - dups
+  console.log('finalAnswer', finalAnswer)
 }
+
+makeAnagrams('cde', 'abc')
