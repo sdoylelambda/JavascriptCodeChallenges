@@ -66,6 +66,7 @@ function reverseInParentheses(s) {
   var regExp = /\(([^)]+)\)/
   var innerExp = /\(([^\(\)]+)\)/
   var firstPart = firstExp.exec(s)
+  var lastPart = s.split('').reverse().join('')
   console.log('firstExp', firstPart)
   var matches = regExp.exec(s)
   console.log('matches', matches)
@@ -77,7 +78,7 @@ function reverseInParentheses(s) {
   const answerInner = matches[1]
   console.log('answerInner', answerInner)
   const firstWord = firstPart
-  const lastWord = matches[1]
+  const lastWord = lastPart
   console.log('firstWord', firstWord)
   console.log('lastWord', lastWord)
   const reverseInnerString = answerInner.split('').reverse().join('')
@@ -93,9 +94,9 @@ function reverseInParentheses(s) {
   console.log('reverseString', reverseString)
 
   // string.concat(value1, value2, ... value_n);
-  const z = firstWord.concat(firstWord, reverseString)
-  const r = reverseString.concat(firstWord)
-  console.log('reverseStringLast', r)
+  const z = firstWord[0].concat(reverseString)
+  const r = z.concat(lastWord)
+  console.log('reverseStringLast', z)
   return reverseString
 }
 
