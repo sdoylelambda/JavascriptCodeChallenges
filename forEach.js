@@ -1,4 +1,4 @@
-const arr = [1, 2, 3]
+const arr = [1, 2, 8]
 //const str = 'hmmm' // nope
 
 function forEach(arr) {
