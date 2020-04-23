@@ -12,6 +12,7 @@ function checkEnding(str1, str2) {
 }
 
 // Examples
+
 // checkEnding("abc", "bc") //➞ true
 
 checkEnding("abc", "d") //➞ false
