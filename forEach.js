@@ -9,3 +9,5 @@ function forEach(arr) {
 
 forEach(arr)
 //forEach(str)
+
+console.log('max:', Math.max(...arr))

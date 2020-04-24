@@ -1,4 +1,6 @@
-const arr = [1, 2, 3]
+// not the one
+
+const arr = [1, 2, 5]
 
 function forLoop(arr) {
   for (a in arr) {
