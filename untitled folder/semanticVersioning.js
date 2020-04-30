@@ -9,26 +9,46 @@
 // Write three separate functions, one to retrieve each element in the semantic versioning specification.
 
 function retrieveMajor(semver) {
-  // sember = 6      =>} .1.9.  (string)
-  // get first char from string and return it
-  // charAt() method, at index 0,
-  var first = semver.charAt(0)
-  console.log(first)
-  return first
+  var splitSemver = semver.split('.')
+  console.log(splitSemver[0])
+  return splitSemver[0]
 }
 
 function retrieveMinor(semver) {
-  // sember = .1.      =>} 6.9
-  var second = semver.charAt(2)
-  console.log(second)
-  return second
+  var splitSemver = semver.split('.')
+  console.log(splitSemver[1])
+  return splitSemver[1]
 }
 
 function retrievePatch(semver) {
-  var third = semver.charAt(4)
-  console.log(third)
-  return third
+  var splitSemver = semver.split('.')
+  console.log(splitSemver[2])
+  return splitSemver[2]
 }
+
+// char at version
+
+// function retrieveMajor(semver) {
+//   // sember = 6      =>} .1.9.  (string)
+//   // get first char from string and return it
+//   // charAt() method, at index 0,
+//   var first = semver.charAt(0)
+//   console.log(first)
+//   return first
+// }
+
+// function retrieveMinor(semver) {
+//   // sember = .1.      =>} 6.9
+//   var second = semver.charAt(2)
+//   console.log(second)
+//   return second
+// }
+
+// function retrievePatch(semver) {
+//   var third = semver.charAt(4)
+//   console.log(third)
+//   return third
+// }
 
 // Examples
 // 6.1.9
@@ -43,4 +63,4 @@ retrieveMajor('2.1.0') // ➞ "2"
 
 retrieveMinor('2.1.0') // ➞ "1"
 
-retrievePatch('2.1.0') // ➞ "0"
+retrievePatch('2.1.000000') // ➞ "000000"
