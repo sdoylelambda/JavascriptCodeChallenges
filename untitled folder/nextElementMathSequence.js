@@ -3,10 +3,12 @@
 // In an arithmetic sequence, each element is formed by adding the same constant to the previous element.
 
 function nextElement(arr) {
-  const output = 0
   const next = arr[0] - arr[1]
-  console.log(next)
-   
+  console.log('next', next)
+  const last = arr.length - 1
+  console.log('last', arr[last])
+  const output = -1 * next + arr[last]
+  console.log('output:', output)
   return output
 }
 
