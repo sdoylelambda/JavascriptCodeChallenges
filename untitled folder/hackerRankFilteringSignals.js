@@ -5,13 +5,45 @@
 
 function countSignals(frequencies, filterRanges) {
   var signalCount = 0
+  var filterArr = []
+  var outputArr = []
+  var maxRange = 10000
+  var minRange = -110
   // get range of first arr, compare 2 2nd and 3rd, if in all add to newarr
   // check if frequencies in newarr
   // if so signal count + 1
-
-  console.log('signalCount', signalCount)
-  return signalCount
+  for (var i = 0; i < filterRanges.length; i++) {
+    var x = filterRanges[i]
+    console.log('x', x)
+    var z = Math.max(...x)
+    if (z <= maxRange) {
+      maxRange = z
+    }
+  }
+  console.log('maxRange', maxRange)
+  for (var i = 0; i < filterRanges.length; i++) {
+    var x = filterRanges[i]
+    console.log('x', x)
+    var z = Math.min(...x)
+    if (z >= minRange) {
+      minRange = z
+    }
+  }
+  console.log('minRange', minRange)
+  // if nums in array are larger than or equal to minRange and
+  for (var i = 0; i < frequencies.length; i++) {
+    console.log('i', frequencies[i])
+    var frequency = frequencies[i]
+    if (frequency >= minRange && frequency <= maxRange) {
+      outputArr.push(frequency)
+    }
+  }
+  console.log('outputArr', outputArr)
+  return outputArr
+  // smaller than or equal to maxRange add to outputArr
 }
+// console.log('filterRanges', filterRanges)
+// return signalCount
 
 countSignals(
   [8, 15, 14, 16, 21],

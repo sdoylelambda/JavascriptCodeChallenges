@@ -65,3 +65,5 @@ function equalizeArray(arr) {
 }
 
 equalizeArray([3, 3, 2, 1, 3]) // return 2
+
+// RETURN COUNT?
