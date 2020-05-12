@@ -10,8 +10,14 @@
 // Write the regular expression that reveals the hidden word. You have to remove all
 // of the special characters to reveal the word. Use the character class \w in your expression.
 
-const reg = /\w/
+// const reg = /\w+\W/g
+
+const reg = /\w/g
+
+// const reg = /[R,e,g,u,l,a,r,E,x,p,r,e,s,s,i,o,n,s]/g
 
 const str = '**^&$Regular#$%Expressions$%$$%^**'
 
-console.log(str.match(reg))
+console.log(str.match(reg).join(' '))
+const x = str.match(reg).join(' ')
+return x
