@@ -13,12 +13,11 @@ function firstDuplicate(arr) {
     console.log('num2', num2)
     if (num1 === num2) {
       dupNum = num1
+    } else {
+      console.log('No duplicates')
+      return 'No duplicates'
     }
-    // else {
-    //   console.log('No duplicates')
-    //   return 'No duplicates'
-    // }
-    // return dupNum
+    return dupNum
   }
   console.log(dupNum)
   return dupNum
@@ -26,5 +25,7 @@ function firstDuplicate(arr) {
 
 // ex:
 firstDuplicate([1, 2, 3, 4, 4, 5]) // ==> 4
+
+firstDuplicate([1, 2, 3, 4, 5]) // ==> No duplicates
 
 // for unsorted arr
