@@ -94,7 +94,7 @@ class LinkedList {
         this.head = curr.next
       } else {
         // iterate over the list to the
-        // position to removce an element
+        // position to remove an element
         while (it < index) {
           it++
           prev = curr
