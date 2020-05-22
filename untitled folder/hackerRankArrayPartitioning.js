@@ -37,17 +37,35 @@ function partitionArray(k, numbers) {
   var arr1 = []
   var arr2 = []
   // if arr can by evenly divided k times proceed
-  if (arrLen % k) {
-    // make k different arrays... if k = 2 arr1, arr2, if k = 3..
-    // arr(numbers) into each array no duplicates
-    numbers.forEach((num) => {
-      // if (numbers does not contain num add it)
-    })
+  if (arrLen % k === 0) {
+    console.log('yes')
+    return 'Yes'
   } else {
     // else return 'no'
+    console.log('no')
     return 'No'
   }
 }
+
+// function partitionArray(k, numbers) {
+//   console.log('k:', k)
+//   console.log('numbers', numbers)
+//   const arrLen = numbers.length
+//   console.log('arrLen', arrLen)
+//   var arr1 = []
+//   var arr2 = []
+//   // if arr can by evenly divided k times proceed
+//   if (arrLen % k) {
+//     // make k different arrays... if k = 2 arr1, arr2, if k = 3..
+//     // arr(numbers) into each array no duplicates
+//     numbers.forEach((num) => {
+//       // if (numbers does not contain num add it)
+//     })
+//   } else {
+//     // else return 'no'
+//     return 'No'
+//   }
+// }
 
 // Input:
 // 2 - number of partitions
@@ -60,3 +78,6 @@ function partitionArray(k, numbers) {
 // k = 2
 // numbers = [ 3, 5, 3, 2 ]
 partitionArray(2, [3, 5, 3, 2]) // output 'Yes'
+partitionArray(3, [3, 5, 3, 2]) // output 'No'
+partitionArray(4, [3, 5, 3, 2]) // output 'Yes'
+partitionArray(2, [3, 5, 3, 2, 2, 2]) // output 'Yes'

@@ -11,6 +11,25 @@
 
 // need to loop thru and do to all
 
+function maxArrayQueries(n, queries) {
+  let arr = new Array(n).fill(0)
+  var outArr = arr
+  queries.forEach((quir) => {
+    var x0 = quir[0]
+    var x1 = quir[1]
+    var x2 = quir[2]
+    // for position x0(start) to x1(end)
+    for (var i = x0 - 1; i < x1; i++) {
+      var positionPoint = i
+      outArr[i] = outArr[i] + x2
+    }
+  })
+  //  return an INTEGER.
+  const answer = Math.max(...outArr)
+  console.log('outanswer', answer)
+  return answer
+}
+
 // function maxArrayQueries(n, queries) {
 //   console.log(n)
 //   console.log(queries[0])
@@ -101,44 +120,46 @@
 //   // })
 // }
 
-function maxArrayQueries(n, queries) {
-  let arr = new Array(n).fill(0)
-  var outArr = arr
-  console.log('arr', arr)
-  queries.forEach((quir) => {
-    console.log('quir', quir)
-    // quir.forEach((num) => {
-    // console.log('num::::', num)
-    var x0 = quir[0]
-    // console.log('x0', x0)
-    var x1 = quir[1]
-    // console.log('x1', x1)
-    var x2 = quir[2]
-    // console.log('x2', x2)
-    // in output arr
+// WORKING
 
-    // for position x0(start) to x1(end)
-    for (var i = x0 - 1; i < x1; i++) {
-      console.log('i', i)
-      console.log('outArr[i]', outArr[i])
-      var positionPoint = i
-      // add x2 to each point
-      outArr[i] = outArr[i] + x2
-      console.log('outArr[i]::out:::', outArr[i])
-      // outArr.splice(i, i, x2)
-      console.log('for arr:', outArr)
-    }
-    // })
-  })
+// function maxArrayQueries(n, queries) {
+//   let arr = new Array(n).fill(0)
+//   var outArr = arr
+//   console.log('arr', arr)
+//   queries.forEach((quir) => {
+//     console.log('quir', quir)
+//     // quir.forEach((num) => {
+//     // console.log('num::::', num)
+//     var x0 = quir[0]
+//     // console.log('x0', x0)
+//     var x1 = quir[1]
+//     // console.log('x1', x1)
+//     var x2 = quir[2]
+//     // console.log('x2', x2)
+//     // in output arr
 
-  console.log('outarr', outArr)
+//     // for position x0(start) to x1(end)
+//     for (var i = x0 - 1; i < x1; i++) {
+//       console.log('i', i)
+//       console.log('outArr[i]', outArr[i])
+//       var positionPoint = i
+//       // add x2 to each point
+//       outArr[i] = outArr[i] + x2
+//       console.log('outArr[i]::out:::', outArr[i])
+//       // outArr.splice(i, i, x2)
+//       console.log('for arr:', outArr)
+//     }
+//     // })
+//   })
 
-  //  return an INTEGER.
-  console.log('FINALEND:>', Math.max(...outArr))
-  const answer = Math.max(...outArr)
-  console.log('outanswer', answer)
-  return answer
-}
+//   console.log('outarr', outArr)
+
+//   //  return an INTEGER.
+//   console.log('FINALEND:>', Math.max(...outArr))
+//   const answer = Math.max(...outArr)
+//   console.log('outanswer', answer)
+//   return answer
+// }
 
 // n = 5
 // queries = [ [ 1, 2, 100 ], [ 2, 5, 100 ], [ 3, 4, 100 ] ]

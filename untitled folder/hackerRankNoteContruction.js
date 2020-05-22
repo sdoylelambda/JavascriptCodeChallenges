@@ -8,21 +8,12 @@
 
 function constructNote(magazine, note) {
   var count = 0
-  console.log('magazine', magazine)
-  console.log('note', note)
-  // if magazine contains note
   note.forEach((word) => {
-    console.log('word:', word)
-    magazine.forEach((mag) => {
-      console.log('mag:', mag)
-      if (word === mag) {
-        count += 1
-      }
-    })
+    if (magazine.includes(word)) {
+      count += 1
+    }
   })
   if (count === note.length) {
-    // if(){
-    //   // return true
     console.log('True')
     return true
   } else {
@@ -30,6 +21,34 @@ function constructNote(magazine, note) {
     return false
   }
 }
+
+// function constructNote(magazine, note) {
+//   var count = 0
+//   console.log('magazine', magazine)
+//   console.log('note', note)
+//   // if magazine contains note
+//   note.forEach((word) => {
+//     console.log('word:', word)
+//     // magazine.forEach((mag) => {
+//     // console.log('mag:', mag)
+//     if (magazine.includes(word)) {
+//       count += 1
+//       console.log('count', count)
+//     }
+//     // })
+//   })
+//   if (count === note.length) {
+//     console.log('countif:', count)
+//     console.log('note.length', note.length)
+//     // if(){
+//     //   // return true
+//     console.log('True')
+//     return true
+//   } else {
+//     console.log('False')
+//     return false
+//   }
+// }
 
 // sample input:
 // 6
@@ -54,20 +73,37 @@ function constructNote(magazine, note) {
 //   ['give', 'one', 'grand', 'today']
 // )
 
-constructNote([ 'apgo',
-'clm',
-'w',
-'lxkvg',
-'mwz',
-'elo',
-'bg',
-'elo',
-'lxkvg',
-'elo',
-'apgo',
-'apgo',
-'w',
-'elo',
-'bg' ],
-
+constructNote(
+  [
+    'clm',
+    'w',
+    'lxkvg',
+    'mwz',
+    'elo',
+    'bg',
+    'elo',
+    'lxkvg',
+    'elo',
+    'apgo',
+    'apgo',
+    'w',
+    'elo',
+    'bg',
+  ],
+  [
+    'clm',
+    'w',
+    'lxkvg',
+    'mwz',
+    'elo',
+    'bg',
+    'elo',
+    'lxkvg',
+    'elo',
+    'apgo',
+    'apgo',
+    'w',
+    'elo',
+    'bg',
+  ]
 )
