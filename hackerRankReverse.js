@@ -14,6 +14,36 @@
 // TEST CASES ARE (TEST) LIKE EXAMPLES AND (((((((TEST)))))))
 // 2 (()) CANCELS OUT
 
+function reverseInParentheses(s) {
+  // FIND () IN STRING WITH REG EXP
+  var firstExp = /^[^()]+/
+  var regExp = /\(([^)]+)\)/
+  var innerExp = /\(([^\(\)]+)\)/
+  var firstPart = firstExp.exec(s)
+  var lastPart = s.split('').reverse().join('')
+  var lastP = firstExp.exec(lastPart)
+  // console.log('firstExp', firstPart)
+  var matches = regExp.exec(s)
+  // console.log('matches', matches)
+  var matchesInner = innerExp.exec(s)
+  // console.log('matchesInner', matchesInner)
+
+  // FIND INNERMOST ()
+  const answerInner = matches[1].split('').reverse().join('')
+  const firstWord = firstPart
+  const lastWord = lastP[0]
+  const reverseInnerString = answerInner.split('').reverse().join('')
+
+  const answer = matches[1]
+  const reverseString = answer.split('').reverse().join('')
+
+  const z = firstWord[0].concat(reverseString)
+  var lastW = lastWord.split('').reverse().join('')
+  const r = z.concat(lastW)
+  console.log('r', r)
+  return r
+}
+
 // function reverseInParentheses(s) {
 //   // FIND () IN STRING WITH REG EXP
 //   var regExp = /\(([^)]+)\)/
@@ -107,52 +137,54 @@ var matches = regExp.exec('I expect five hundred dollars (500).')
 //   return r
 // }
 
-function reverseInParentheses(s) {
-  // FIND () IN STRING WITH REG EXP
-  var firstExp = /^[^()]+/
-  var regExp = /\(([^)]+)\)/
-  var innerExp = /\(([^\(\)]+)\)/
-  var firstPart = firstExp.exec(s)
-  var lastPart = s.split('').reverse().join('')
-  var lastP = firstExp.exec(lastPart)
-  console.log('lastPart', lastPart)
-  console.log('lastP', lastP)
-  // console.log('firstExp', firstPart)
-  var matches = regExp.exec(s)
-  // console.log('matches', matches)
-  var matchesInner = innerExp.exec(s)
-  // console.log('matchesInner', matchesInner)
+// PASSES LOCAL TESTS
 
-  // FIND INNERMOST ()
-  console.log('matchesInner', matchesInner)
-  const answerInner = matches[1]
-  console.log('answerInner', answerInner)
-  const firstWord = firstPart
-  const lastWord = lastP[0]
-  console.log('firstWord', firstWord)
-  console.log('lastWord', lastWord)
-  const reverseInnerString = answerInner.split('').reverse().join('')
-  console.log('reverseInnerString', reverseInnerString)
-  // REVERSE CHARS
-  // NEXT OUTERMOST ()
-  // REVERSE CHARS
-  //
-  console.log(matches)
-  const answer = matches[1]
-  console.log('answer', answer)
-  const reverseString = answer.split('').reverse().join('')
-  console.log('reverseString', reverseString)
+// function reverseInParentheses(s) {
+//   // FIND () IN STRING WITH REG EXP
+//   var firstExp = /^[^()]+/
+//   var regExp = /\(([^)]+)\)/
+//   var innerExp = /\(([^\(\)]+)\)/
+//   var firstPart = firstExp.exec(s)
+//   var lastPart = s.split('').reverse().join('')
+//   var lastP = firstExp.exec(lastPart)
+//   console.log('lastPart', lastPart)
+//   console.log('lastP', lastP)
+//   // console.log('firstExp', firstPart)
+//   var matches = regExp.exec(s)
+//   // console.log('matches', matches)
+//   var matchesInner = innerExp.exec(s)
+//   // console.log('matchesInner', matchesInner)
 
-  // string.concat(value1, value2, ... value_n);
-  const z = firstWord[0].concat(reverseString)
-  console.log('z', z)
-  var lastW = lastWord.split('').reverse().join('')
-  const r = z.concat(lastW)
-  console.log('r', r)
-  console.log('reverseStringLast', z)
-  console.log('output:::', reverseString)
-  return r
-}
+//   // FIND INNERMOST ()
+//   console.log('matchesInner', matchesInner)
+//   const answerInner = matches[1]
+//   console.log('answerInner', answerInner)
+//   const firstWord = firstPart
+//   const lastWord = lastP[0]
+//   console.log('firstWord', firstWord)
+//   console.log('lastWord', lastWord)
+//   const reverseInnerString = answerInner.split('').reverse().join('')
+//   console.log('reverseInnerString', reverseInnerString)
+//   // REVERSE CHARS
+//   // NEXT OUTERMOST ()
+//   // REVERSE CHARS
+//   //
+//   console.log(matches)
+//   const answer = matches[1]
+//   console.log('answer', answer)
+//   const reverseString = answer.split('').reverse().join('')
+//   console.log('reverseString', reverseString)
+
+//   // string.concat(value1, value2, ... value_n);
+//   const z = firstWord[0].concat(reverseString)
+//   console.log('z', z)
+//   var lastW = lastWord.split('').reverse().join('')
+//   const r = z.concat(lastW)
+//   console.log('r', r)
+//   console.log('reverseStringLast', z)
+//   console.log('output:::', reverseString)
+//   return r
+// }
 
 // reverseInParentheses('(bar)') // OUTPUT rab
 reverseInParentheses('foo(bar)baz') // foorabbaz
