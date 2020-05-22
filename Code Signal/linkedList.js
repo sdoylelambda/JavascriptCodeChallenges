@@ -152,6 +152,17 @@ class LinkedList {
   }
 }
 
+// Code Challenge
+function removeKthLinkedListNode(head, k) {
+  console.log('head::::', head.next)
+  var current = head.element
+  var next = current.next
+  // go next k times
+  if (k === 0) {
+    ll.removeElement(k)
+  }
+}
+
 var ll = new LinkedList()
 ll.isEmpty()
 ll.add(1250)
@@ -161,4 +172,6 @@ ll.printList()
 ll.size_of_list()
 ll.isEmpty()
 ll.removeFrom(1)
+ll.printList()
+removeKthLinkedListNode(ll.head, 0)
 ll.printList()
