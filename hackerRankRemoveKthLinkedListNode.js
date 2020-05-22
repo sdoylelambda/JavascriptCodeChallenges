@@ -6,15 +6,26 @@
 // *  1. INTEGER_SINGLY_LINKED_LIST head
 // *  2. INTEGER k
 
-/*
-* For your reference:
-*
-* SinglyLinkedListNode {
-*     int data;
-*     SinglyLinkedListNode next;
-* }
-*
-*/
+
+
+// Linked List
+
+// Node
+class Node {
+  constructor(element) {
+    this.element = element
+    this.next = null
+  }
+}
+
+// Linked List
+class LinkedList {
+  constructor() {
+    this.head = null
+    this.size = 0
+  }
+}
+
 
 function removeKthLinkedListNode(head, k) {
 
