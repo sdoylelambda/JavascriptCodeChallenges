@@ -123,7 +123,7 @@ function makeAnagrams(a, b) {
   console.log('dups', dups)
   const finalAnswer = totalChars - dups
   console.log('finalAnswer', finalAnswer)
-  return finalAnswer
+  return dups
 }
 
 // makeAnagrams('cde', 'abc') -- passes
