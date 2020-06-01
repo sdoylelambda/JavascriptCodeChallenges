@@ -9,32 +9,47 @@
 
 function reverseOdd(str) {
   const outputArr = []
-  // const output = ''
   const arr = str.split(' ')
-  console.log('arr', arr)
-  // for each word in str
   for (var i = 0; i < arr.length; i++) {
     const word = arr[i]
     const wordLength = word.length
-    console.log('word:', word.length)
-    // if it is odd
     if (wordLength % 2 === 0) {
       outputArr.push(word)
     } else {
-      // reverse it
+      const reverseWord = word.split('').reverse().join('')
+      outputArr.push(reverseWord)
     }
   }
-
-  var output = outputArr.join()
-
+  var output = outputArr.join(' ')
   console.log('output:', output)
   return output
 }
 
+// function reverseOdd(str) {
+//   return str.split(" ").map(w => w.length%2 ? [...w].reverse().join("") : w).join(" ");
+// }
+
+// const reverseOdd = str => str.split(' ').map(v => v.length % 2 ? [...v].reverse().join('') : v).join(' ');
+
+// function reverseOdd(str) {
+// 	return str.split(" ").map(s => {
+
+// 		if (s.length % 2 !== 0){
+// 			console.log(s);
+// 			 return reverseStr(s);
+// 		}
+// 		return s;
+// 	}).join(" ")
+
+// }
+// function reverseStr(str){
+// 	return [...str].reverse().join("");
+// }
+
 // Examples
-// reverseOdd('Bananas') /// ➞ "sananaB"
+reverseOdd('Bananas') /// ➞ "sananaB"
 
 reverseOdd('One two three four') // ➞ "enO owt eerht four"
 
-// reverseOdd('Make sure uoy only esrever sdrow of ddo length')
+reverseOdd('Make sure uoy only esrever sdrow of ddo length')
 // ➞ "Make sure you only reverse words of odd length"
