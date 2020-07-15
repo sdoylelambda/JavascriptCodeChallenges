@@ -53,17 +53,30 @@
 
 function isSpecialArray(arr) {
   var counter = 0
-  for (var i = 0; i < arr.length; i++) {
-    // const oddPosition = 'if (i % 2 != 0)'
-    // const evenPosition = 'if (i % 2 === 0)'
-    if (i % 2 != 0) {
-      if (arr[i] % 2 != 0) {
-        counter += 1
+  if (arr[0] % 2 === 0) {
+    for (var i = 0; i < arr.length; i++) {
+      if (i % 2 != 0) {
+        if (arr[i] % 2 != 0) {
+          counter += 1
+        }
+      }
+      if (i % 2 === 0) {
+        if (arr[i] % 2 === 0) {
+          counter += 1
+        }
       }
     }
-    if (i % 2 === 0) {
-      if (arr[i] % 2 === 0) {
-        counter += 1
+  } else {
+    for (var i = 0; i < arr.length; i++) {
+      if (i % 2 != 0) {
+        if (arr[i] % 2 === 0) {
+          counter += 1
+        }
+      }
+      if (i % 2 === 0) {
+        if (arr[i] % 2 != 0) {
+          counter += 1
+        }
       }
     }
   }
@@ -78,13 +91,13 @@ function isSpecialArray(arr) {
 }
 
 // Examples
-// isSpecialArray([11, 22, 33]) // ➞ true
+isSpecialArray([11, 22, 33]) // ➞ true
 
 isSpecialArray([2, 7, 4, 9, 6, 1, 6, 3]) // ➞ true
 // Even indices: [2, 4, 6, 6]; Odd indices: [7, 9, 1, 3]
 
-// isSpecialArray([2, 7, 9, 1, 6, 1, 6, 3]) // ➞ false
+isSpecialArray([2, 7, 9, 1, 6, 1, 6, 3]) // ➞ false
 // // Index 2 has an odd number 9.
 
-// isSpecialArray([2, 7, 8, 8, 6, 1, 6, 3]) // ➞ false
+isSpecialArray([2, 7, 8, 8, 6, 1, 6, 3]) // ➞ false
 // // Index 3 has an even number 8.
