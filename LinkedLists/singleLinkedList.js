@@ -30,17 +30,58 @@ class LinkedList {
 
   // insertAt(element, location)
   // removeFrom(location)
-  removeElement(element) {
-    if (this.head === element) {
-      this.head = null
-      this.size = 0
-    } else {
-      var current = this.head
-      while (current.element != element) {
-        current = current.next
+
+  removeFrom(index) {
+    if (index > 0 && index > this.size) return -1
+    else {
+      var curr,
+        prev,
+        it = 0
+      curr = this.head
+      prev = curr
+
+      // deleting first element
+      if (index === 0) {
+        this.head = curr.next
+      } else {
+        // iterate over the list to the
+        // position to removce an element
+        while (it < index) {
+          it++
+          prev = curr
+          curr = curr.next
+        }
+
+        // remove the element
+        prev.next = curr.next
       }
-      this.head = null
-      this.size = 0
+      this.size--
+
+      // return the remove element
+      return curr.element
+    }
+  }
+
+  removeElement(element) {
+    if (element > 0 && element > this.size) return -1
+    else {
+      var current = this.head
+      var prev = current
+      var it = 0
+      // console.log('current', current)
+      if (element === 0) {
+        this.head = current.next
+        this.size -= 1
+      } else {
+        while (it < element) {
+          it++
+          prev = current
+          current = current.next
+        }
+        prev.next = current.next
+      }
+      this.size--
+      return current.element
     }
   }
 
@@ -79,6 +120,7 @@ ll.add(11)
 ll.printList()
 ll.printSize()
 ll.isEmpty()
+// ll.removeFrom(200)
 ll.removeElement(1)
 ll.printList()
 ll.printSize()
