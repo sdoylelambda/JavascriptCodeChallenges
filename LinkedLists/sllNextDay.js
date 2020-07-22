@@ -51,8 +51,9 @@ class SinglyLinkedList {
   deleteFromLocation(location) {
     var cur = this.head
     var next = this.next
+    console.log('next', cur)
     if (location === 0) {
-      this.head = next
+      this.head = cur.next
     }
     this.size--
   }
@@ -123,9 +124,9 @@ ll.printList()
 ll.printIsEmpty()
 ll.printSize()
 ll.retrieve(0)
-// ll.deleteFromLocation(0)
-// ll.printList()
-// ll.printIsEmpty()
-// ll.printSize()
+ll.deleteFromLocation(0)
+ll.printList()
+ll.printIsEmpty()
+ll.printSize()
 ll.reverseList()
 ll.printList()
