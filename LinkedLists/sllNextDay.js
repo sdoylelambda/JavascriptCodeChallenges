@@ -50,10 +50,10 @@ class SinglyLinkedList {
 
   deleteFromLocation(location) {
     var cur = this.head
-    for (var i = 0; i < location - 1; i++) {
-      cur = cur.next
+    var next = this.next
+    if (location === 0) {
+      this.head = next
     }
-    cur = cur.next
     this.size--
   }
 
@@ -64,9 +64,28 @@ class SinglyLinkedList {
     }
   }
 
-  // reverse list
+  reverseList() {
+    var arr = []
+    var reverseArr = []
+    var cur = this.head
+    while (cur) {
+      arr.push(cur.element)
+      cur = cur.next
+    }
+    console.log('arr', arr)
+    reverseArr = arr.reverse()
+    console.log('output', reverseArr)
+    this.addArray(reverseArr) // this?
+  }
 
   // helper
+
+  addArray(arr) {
+    for (var i = 0; i < arr.length; i++) {
+      var element = arr[i]
+      this.add(element)
+    }
+  }
 
   printList() {
     var str = ''
@@ -99,12 +118,14 @@ ll.printIsEmpty()
 ll.printSize()
 ll.addToFront(7)
 ll.addToFront(2)
-ll.add(2)
+ll.add(3)
 ll.printList()
 ll.printIsEmpty()
 ll.printSize()
 ll.retrieve(0)
-ll.deleteFromLocation(0)
+// ll.deleteFromLocation(0)
+// ll.printList()
+// ll.printIsEmpty()
+// ll.printSize()
+ll.reverseList()
 ll.printList()
-ll.printIsEmpty()
-ll.printSize()
