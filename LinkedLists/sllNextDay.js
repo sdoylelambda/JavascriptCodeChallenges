@@ -38,22 +38,32 @@ class SinglyLinkedList {
   // retrieve from location
   retrieve(location) {
     if (location === 0) {
-      console.log(this.head.element)
+      console.log('retrieve', this.head.element)
     } else {
       var cur = this.head
-      if (cur.next != location) {
+      var SLLLocation = 0
+      while (SLLLocation != location) {
         cur = cur.next
+        SLLLocation++
       }
-      console.log(cur.element)
+      console.log('retrieve:', cur.element)
     }
   }
 
   deleteFromLocation(location) {
     var cur = this.head
-    var next = this.next
-    console.log('next', cur)
+    // console.log('cur', cur)
+    var prev = cur
+    // console.log('next', cur)
     if (location === 0) {
       this.head = cur.next
+    } else {
+      while (location != cur) {
+        prev = cur
+        cur = cur.next
+      }
+      prev.next = cur.next
+      return cur.element
     }
     this.size--
   }
@@ -61,7 +71,7 @@ class SinglyLinkedList {
   deleteElement(element) {
     var cur = this.head
     if (cur.element === element) {
-      this.next = cur
+      this.next = cur.next
     }
   }
 
@@ -71,11 +81,12 @@ class SinglyLinkedList {
     var cur = this.head
     while (cur) {
       arr.push(cur.element)
+      this.deleteFromLocation(0)
       cur = cur.next
     }
-    console.log('arr', arr)
+    // console.log('arr', arr)
     reverseArr = arr.reverse()
-    console.log('output', reverseArr)
+    // console.log('output', reverseArr)
     this.addArray(reverseArr) // this?
   }
 
@@ -115,18 +126,19 @@ class SinglyLinkedList {
 
 var ll = new SinglyLinkedList()
 
-ll.printIsEmpty()
-ll.printSize()
+// ll.printIsEmpty()
+// ll.printSize()
 ll.addToFront(7)
 ll.addToFront(2)
 ll.add(3)
 ll.printList()
-ll.printIsEmpty()
-ll.printSize()
-ll.retrieve(0)
-ll.deleteFromLocation(0)
+// ll.printIsEmpty()
+// ll.printSize()
+ll.retrieve(1)
+ll.deleteFromLocation(2)
+ll.deleteElement(2)
 ll.printList()
-ll.printIsEmpty()
-ll.printSize()
+// ll.printIsEmpty()
+// ll.printSize()
 ll.reverseList()
 ll.printList()
