@@ -54,13 +54,15 @@ class SinglyLinkedList {
     var cur = this.head
     // console.log('cur', cur)
     var prev = cur
+    var SLLLocation = 0
     // console.log('next', cur)
     if (location === 0) {
       this.head = cur.next
     } else {
-      while (location != cur) {
+      while (location != SLLLocation) {
         prev = cur
         cur = cur.next
+        SLLLocation++
       }
       prev.next = cur.next
       return cur.element
@@ -135,7 +137,7 @@ ll.printList()
 // ll.printIsEmpty()
 // ll.printSize()
 ll.retrieve(1)
-ll.deleteFromLocation(2)
+ll.deleteFromLocation(1)
 ll.deleteElement(2)
 ll.printList()
 // ll.printIsEmpty()
