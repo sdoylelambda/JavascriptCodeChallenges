@@ -38,35 +38,68 @@ class SinglyLinkedList {
   // retrieve from location
   retrieve(location) {
     if (location === 0) {
-      console.log(this.head.element)
+      console.log('retrieve', this.head.element)
     } else {
       var cur = this.head
-      if (cur.next != location) {
+      var SLLLocation = 0
+      while (SLLLocation != location) {
         cur = cur.next
+        SLLLocation++
       }
-      console.log(cur.element)
+      console.log('retrieve:', cur.element)
     }
   }
 
   deleteFromLocation(location) {
     var cur = this.head
-    for (var i = 0; i < location - 1; i++) {
-      cur = cur.next
+    // console.log('cur', cur)
+    var prev = cur
+    var SLLLocation = 0
+    // console.log('next', cur)
+    if (location === 0) {
+      this.head = cur.next
+    } else {
+      while (location != SLLLocation) {
+        prev = cur
+        cur = cur.next
+        SLLLocation++
+      }
+      prev.next = cur.next
+      return cur.element
     }
-    cur = cur.next
     this.size--
   }
 
   deleteElement(element) {
     var cur = this.head
     if (cur.element === element) {
-      this.next = cur
+      this.next = cur.next
     }
   }
 
-  // reverse list
+  reverseList() {
+    var arr = []
+    var reverseArr = []
+    var cur = this.head
+    while (cur) {
+      arr.push(cur.element)
+      this.deleteFromLocation(0)
+      cur = cur.next
+    }
+    // console.log('arr', arr)
+    reverseArr = arr.reverse()
+    // console.log('output', reverseArr)
+    this.addArray(reverseArr) // this?
+  }
 
   // helper
+
+  addArray(arr) {
+    for (var i = 0; i < arr.length; i++) {
+      var element = arr[i]
+      this.add(element)
+    }
+  }
 
   printList() {
     var str = ''
@@ -95,16 +128,19 @@ class SinglyLinkedList {
 
 var ll = new SinglyLinkedList()
 
-ll.printIsEmpty()
-ll.printSize()
+// ll.printIsEmpty()
+// ll.printSize()
 ll.addToFront(7)
 ll.addToFront(2)
-ll.add(2)
+ll.add(3)
 ll.printList()
-ll.printIsEmpty()
-ll.printSize()
-ll.retrieve(0)
-ll.deleteFromLocation(0)
+// ll.printIsEmpty()
+// ll.printSize()
+ll.retrieve(1)
+ll.deleteFromLocation(1)
+ll.deleteElement(2)
 ll.printList()
-ll.printIsEmpty()
-ll.printSize()
+// ll.printIsEmpty()
+// ll.printSize()
+ll.reverseList()
+ll.printList()
