@@ -34,13 +34,56 @@ class SinglyLinkedList {
   }
 
   retrieve(location) {
-    var listLocation = 0
     var cur = this.head
+    var LLLocation = 0
+    while (location != LLLocation) {
+      cur = cur.next
+      LLLocation++
+    }
+    console.log(cur.element)
   }
 
-  deleteFromLocation() {}
+  deleteFromLocation(location) {
+    var cur = this.head
+    // console.log('cur', cur)
+    var prev = cur
+    var SLLLocation = 0
+    // console.log('next', cur)
+    if (location === 0) {
+      this.head = cur.next
+    } else {
+      while (location != SLLLocation) {
+        prev = cur
+        cur = cur.next
+        SLLLocation++
+      }
+      prev.next = cur.next
+      return cur.element
+    }
+    this.size--
+  }
 
-  deleteElement() {}
+  deleteElement(element) {
+    var cur = this.head
+    if (cur.element === element) {
+      this.next = cur.next
+    }
+  }
+
+  reverseList() {
+    var arr = []
+    var reverseArr = []
+    var cur = this.head
+    while (cur) {
+      arr.push(cur.element)
+      this.deleteFromLocation(0)
+      cur = cur.next
+    }
+    // console.log('arr', arr)
+    reverseArr = arr.reverse()
+    // console.log('output', reverseArr)
+    this.addArray(reverseArr)
+  }
 
   // O(n) time & O(1) space
   reverseList(head) {
@@ -84,6 +127,13 @@ class SinglyLinkedList {
     }
     console.log(str)
   }
+
+  addArray(arr) {
+    for (var i = 0; i < arr.length; i++) {
+      var element = arr[i]
+      this.add(element)
+    }
+  }
 }
 
 const ll = new SinglyLinkedList()
@@ -104,5 +154,5 @@ ll.printSize()
 // ll.printList()
 // ll.printIsEmpty()
 // ll.printSize()
-ll.reverseList(ll.head)
+ll.reverseList(this.head)
 ll.printList()
