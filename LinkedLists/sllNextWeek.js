@@ -14,31 +14,43 @@ class SinglyLinkedList {
   addToHead(element) {
     const node = new Node(element)
     var cur = this.head
+    var prev = cur
     this.head = node
-    node.next = cur
+    node.next = prev
     this.size++
   }
 
   addToEnd(element) {
     const node = new Node(element)
     var cur = this.head
-    while (cur.next) {
-      cur = cur.next
+    if (this.head === null) {
+      this.head = node
+    } else {
+      while (cur) {
+        cur = cur.next
+      }
+      cur = node
     }
-    cur = node
     this.size++
   }
 
   deleteFrom(location) {
-    var listLocation = 0
     var cur = this.head
-    while (location != listLocation) {
-      listLocation++
-      cur = cur.next
-      // console.log('listLocation', listLocation)
-      // console.log('cur', cur)
+    // console.log('cur', cur)
+    var prev = cur
+    var SLLLocation = 0
+    // console.log('next', cur)
+    if (location === 0) {
+      this.head = cur.next
+    } else {
+      while (location != SLLLocation) {
+        prev = cur
+        cur = cur.next
+        SLLLocation++
+      }
+      prev.next = cur.next
+      return cur.element
     }
-    cur = cur.next
     this.size--
   }
 
@@ -115,7 +127,7 @@ ll.addToEnd(1)
 ll.printList()
 ll.deleteFrom(0)
 // ll.isListEmpty()
-// ll.listSize()
+ll.listSize()
 ll.printList()
-// ll.reverseList()
-// ll.printList()
+ll.reverseList()
+ll.printList()

@@ -17,6 +17,7 @@ class SinglyLinkedList {
     this.head = cur
     this.head = node
     node.next = cur
+    this.size++
   }
 
   addToBack(element) {
