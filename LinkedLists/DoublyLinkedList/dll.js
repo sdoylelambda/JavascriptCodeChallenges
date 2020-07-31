@@ -17,8 +17,6 @@ class DoublyLinkedList {
     const node = new Node(element)
     var cur = this.head
     var prev = cur
-    // this.head = node
-    // this.next = prev
     if (this.tail === null || this.head === null) {
       this.tail = node
       this.head = node
@@ -46,8 +44,32 @@ class DoublyLinkedList {
     this.size++
   }
 
-  // get(index)
-  // remove(index)
+  get(index) {
+    // is index closer to head or tail?
+    var head = this.head
+    var tail = this.tail
+    var sllIndex = 0
+    var i = this.size / 2
+    if (index < i) {
+      // closer to head
+      while (index != sllIndex) {
+        head = head.next
+        sllIndex++
+      }
+      console.log(head.element)
+    } else {
+      // closer to tail
+      while (index != sllIndex) {
+        tail = tail.prev
+        sllIndex++
+      }
+      console.log(head.element)
+    }
+  }
+
+  remove(index) {
+    // tbc
+  }
 
   // helper methods
 
@@ -72,16 +94,27 @@ class DoublyLinkedList {
     }
     console.log(str)
   }
+
+  printHead() {
+    console.log(this.head.element)
+  }
+
+  printTail() {
+    console.log(this.tail.element)
+  }
 }
 
 const dll = new DoublyLinkedList()
 
 dll.isEmpty()
 dll.printSize()
-dll.addHead(7)
+dll.addHead(2)
 dll.addHead(7)
 dll.addTail(2)
 dll.addTail(3)
 dll.isEmpty()
 dll.printSize()
 dll.printList()
+dll.printHead()
+dll.printTail()
+dll.get(3)
