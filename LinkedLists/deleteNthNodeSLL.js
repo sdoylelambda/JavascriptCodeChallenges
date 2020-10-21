@@ -43,6 +43,7 @@ class SinglyLinkedList {
     var prev = cur
     while (findNode > count){
       count++
+      prev = cur
       cur = cur.next
     }  
     prev.next = cur.next 
@@ -70,7 +71,7 @@ sll.addNode(32)
 sll.addNode(72)
 sll.printList()
 sll.findNthNode(4)
-sll.removeNode(5)
+sll.removeNode(1)
 sll.printList()
 
 
