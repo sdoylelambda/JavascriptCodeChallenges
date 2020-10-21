@@ -41,6 +41,9 @@ class SinglyLinkedList {
     var count = 1
     var cur = this.head
     var prev = cur
+    if (findNode === 1) {
+      this.head = cur.next
+    } else {
     while (findNode > count){
       count++
       prev = cur
@@ -48,7 +51,7 @@ class SinglyLinkedList {
     }  
     prev.next = cur.next 
     console.log(`Node at position ${findNode} with element: ${cur.element} has been deleted.`)
-    
+  }
   }
 
   printList() {
