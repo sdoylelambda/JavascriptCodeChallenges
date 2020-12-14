@@ -51,7 +51,8 @@ class SinglyLinkedList {
     }  
     prev.next = cur.next 
     console.log(`Node at position ${findNode} with element: ${cur.element} has been deleted.`)
-  }
+    }
+    this.size--
   }
 
   printList() {
